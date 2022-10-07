@@ -21,8 +21,10 @@ namespace HairSalon.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int stylistId, string stylistName)
     {
+      ViewBag.StylistName = stylistName;
+      ViewBag.StylistId = stylistId;
       return View(); //should we pass in the stylist, so you can only make a client from the stylist's page?
     }
 
@@ -31,7 +33,7 @@ namespace HairSalon.Controllers
     {
       _db.Clients.Add(client);
       _db.SaveChanges();
-      return RedirectToAction("Index"); //maybe have it take them to the stylist instead
+      return RedirectToAction("Show", new { id = client.ClientId}); //maybe have it take them to the stylist instead
     }
 
     public ActionResult Show(int id)
@@ -52,7 +54,7 @@ namespace HairSalon.Controllers
     {
       _db.Entry(client).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Show", client);
     }
 
     public ActionResult Delete(int id)
