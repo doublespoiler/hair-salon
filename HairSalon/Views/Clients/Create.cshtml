@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+
+@model HairSalon.Models.Client
+<h1>Add new client for @ViewBag.StylistName</h1>
+
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StylistId, new {value = @ViewBag.StylistId})
+
+  @Html.LabelFor(model => model.ClientName) <span>: </span> 
+  @Html.EditorFor(model => model.ClientName)
+  <br>
+  @Html.LabelFor(model => model.ClientNotes) <span>(max 255 char) : </span>
+  <br>
+  @Html.TextAreaFor(model => model.ClientNotes, new {cols = "40", rows = "5", maxlength = "255"})
+  <br>
+  <input type="submit" value="Add">
+}
