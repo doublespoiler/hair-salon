@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using HairSalon.Models;
 
 namespace HairSalon.Controllers
@@ -9,7 +10,7 @@ namespace HairSalon.Controllers
   public class ClientsController: Controller
   {
     private readonly HairSalonContext _db;
-    public ClientsController(HairSaloNContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
