@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<h1>Edit Client - @Html.DisplayFor(model => model.ClientName)</h1>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ClientId)
+
+  @Html.LabelFor(model => model.ClientName, "Name: ")
+  @Html.EditorFor(model => model.ClientName)
+  <br>
+  @Html.LabelFor(model => model.Stylist, "Stylist: ")
+  @Html.DropDownList("StylistId")
+  @Html.ValidationMessageFor(model => model.StylistId)
+  <br>
+  @Html.LabelFor(model => model.ClientNotes,"Notes (max 255): ")
+  <br>
+  @Html.TextAreaFor(model => model.ClientNotes, new { cols = "40", rows = "5", maxlength = "255"})
+  <br>
+  <input type="submit" value="Save">
+  @Html.ActionLink("Cancel", "Show", new {id = Model.ClientId}, new{@class="btn"})
+  
+}
+
