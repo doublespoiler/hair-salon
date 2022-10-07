@@ -26,7 +26,6 @@ button{
 #renderbody{
   overflow-y:scroll;
   height: 90vh;
-  background-color:#333;
   width:80%;
   margin: auto;
   padding-left:1em;
