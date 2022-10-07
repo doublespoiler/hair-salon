@@ -69,7 +69,7 @@ namespace HairSalon.Controllers
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();
-      return RedirectToAction("Index"); //should change to go to the stylist page, probably
+      return RedirectToAction("Show", "Stylists", new { id = thisClient.StylistId}); //should change to go to the stylist page, probably
     }
   }
 }
