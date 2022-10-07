@@ -45,7 +45,7 @@ namespace HairSalon.Controllers
     public ActionResult Edit(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "StylistName");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "StylistName", thisClient.StylistId);
       return View(thisClient);
     }
 
@@ -54,7 +54,7 @@ namespace HairSalon.Controllers
     {
       _db.Entry(client).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Show", client);
+      return RedirectToAction("Show", new { id = client.ClientId } );
     }
 
     public ActionResult Delete(int id)
