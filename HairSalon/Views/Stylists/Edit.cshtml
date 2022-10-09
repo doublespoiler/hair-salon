@@ -3,7 +3,9 @@
 }
 
 @model HairSalon.Models.Stylist
+
 <h1>Edit Stylist - @Html.DisplayFor(model => model.StylistName)</h1>
+
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.StylistId)
@@ -16,5 +18,4 @@
   <br>
   <input type="submit" value="Save" class="btn btn-lg">
   @Html.ActionLink("Cancel", "Show", new {id = Model.StylistId}, new{@class="btn"})
-  
 }

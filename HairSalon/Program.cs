@@ -13,7 +13,6 @@ namespace HairSalon
         .UseIISIntegration()
         .UseStartup<Startup>()
         .Build();
-
       host.Run();
     }
   }

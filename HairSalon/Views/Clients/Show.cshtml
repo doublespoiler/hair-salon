@@ -6,9 +6,11 @@
 @model HairSalon.Models.Client
 
 <h1>Client Details - @Html.DisplayFor(model => model.ClientName)</h1>
+
 @Html.ActionLink("Edit", "Edit", new {id = Model.ClientId}, new{@class="btn btn-lg"})
 @Html.ActionLink("Delete", "Delete", new {id = Model.ClientId}, new{@class="btn btn-lg"})
 <hr />
+
 <p>@Html.DisplayNameFor(model => model.Stylist.StylistName): @Html.ActionLink($"{Model.Stylist.StylistName}", "Show", "Stylists", new { id = Model.StylistId })</p>
 <p>@Html.DisplayNameFor(model => model.ClientName) : @Html.DisplayFor(model => model.ClientName)</p>
 <p>@Html.DisplayNameFor(model => model.ClientNotes) : @Html.DisplayFor(model => model.ClientNotes)</p>
